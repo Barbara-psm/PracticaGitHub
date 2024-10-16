@@ -1,0 +1,18 @@
+version: '3'
+services: 
+  prueba:
+    build: .
+    container_name: micontenedor
+    ports:
+      - "3000:3000"
+    links:
+      - miapp
+      
+  miapp:
+    image: mongo
+    container_name: micontenedormongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=isen
+      - MONGO_INITDB_ROOT_PASSWORD=dwes
